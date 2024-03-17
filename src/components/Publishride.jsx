@@ -49,7 +49,7 @@ function Publishride() {
 
     const fetchUserDetails = async (userId) => {
         try {
-            const response = await axios.get(`https://backend-1-1trx.onrender.com/user/${userId}`); // Assuming you have an endpoint to fetch user details by ID
+            const response = await axios.get(`http://localhost:8000/user/${userId}`); // Assuming you have an endpoint to fetch user details by ID
             const { name, mobileNumber } = response.data;
             setUserName(name);
             setUserMobileNumber(mobileNumber);
@@ -61,7 +61,7 @@ function Publishride() {
     const pbnext = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('https://backend-1-1trx.onrender.com/rides', {
+            const response = await axios.post('http://localhost:8000/rides', {
                 pickup,
                 destination,
                 date,
