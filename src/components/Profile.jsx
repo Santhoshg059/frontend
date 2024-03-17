@@ -21,7 +21,7 @@ function Profile() {
             const userIdFromToken = getUserIdFromToken(token);
             setUserId(userIdFromToken);
 
-            axios.get(`http://localhost:8000/user/${userIdFromToken}`)
+            axios.get(`https://backend-1-1trx.onrender.com/user/${userIdFromToken}`)
                 .then(response => {
                     const user = response.data;
                     setUserName(user.name);
@@ -49,7 +49,7 @@ function Profile() {
             vehicleNumber,
             licenseNumber
         };
-        axios.post(`http://localhost:8000/user/${userId}/details`, userData)
+        axios.post(`https://backend-1-1trx.onrender.com/user/${userId}/details`, userData)
             .then(response => {
                 console.log('Details saved successfully.');
                 setEditMode(false);
@@ -64,7 +64,7 @@ function Profile() {
         const formData = new FormData();
         formData.append('image', selectedFile);
 
-        axios.post(`http://localhost:8000/user/${userId}/image-upload`, formData, {
+        axios.post(`https://backend-1-1trx.onrender.com/user/${userId}/image-upload`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

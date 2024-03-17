@@ -23,7 +23,7 @@ function PublishedRides() {
             const { userId } = decodeJwtToken(token);
             setUserId(userId);
 
-            axios.get(`http://localhost:8000/published-rides?userId=${userId}`)
+            axios.get(`https://backend-1-1trx.onrender.com/published-rides?userId=${userId}`)
                 .then(response => {
                     setPublishedRides(response.data);
                     setLoading(false);
@@ -70,7 +70,7 @@ function PublishedRides() {
 
     const handleDelete = (rideId) => {
         if (window.confirm('Are you sure you want to delete this ride?')) {
-            axios.delete(`http://localhost:8000/published-rides/${rideId}`)
+            axios.delete(`https://backend-1-1trx.onrender.com/published-rides/${rideId}`)
                 .then(response => {
                     setPublishedRides(prevRides => prevRides.filter(ride => ride._id !== rideId));
                 })
@@ -86,7 +86,7 @@ function PublishedRides() {
 
     const handleEditSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:8000/published-rides/${selectedRide._id}`, {
+        axios.put(`https://backend-1-1trx.onrender.com/published-rides/${selectedRide._id}`, {
             pickup: formData.pickup,
             destination: formData.destination,
             date: formData.date,

@@ -31,7 +31,7 @@ function Home() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-          const response = await fetch(`http://localhost:8000/search?from=${from}&to=${to}&date=${date}&personCount=${personCount}`);
+          const response = await fetch(`https://backend-1-1trx.onrender.com/search?from=${from}&to=${to}&date=${date}&personCount=${personCount}`);
           if (!response.ok) {
               throw new Error('Failed to fetch rides');
           }

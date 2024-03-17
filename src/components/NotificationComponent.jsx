@@ -29,7 +29,7 @@ const NotificationComponent = () => {
 
     const fetchNotifications = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/notifications/${userId}`);
+            const response = await axios.get(`https://backend-1-1trx.onrender.com/notifications/${userId}`);
             console.log('Fetched notifications:', response.data);
             setNotifications(response.data);
         } catch (error) {
@@ -40,7 +40,7 @@ const NotificationComponent = () => {
     const handleAccept = async (notificationId, reqById, notification) => {
         try {
             console.log('Accepting notification:', notification);
-            await axios.put(`http://localhost:8000/notifications/${notificationId}/accept`);
+            await axios.put(`https://backend-1-1trx.onrender.com/notifications/${notificationId}/accept`);
             
             if (notification.returnNotification === 'accepted') {
                 const mobileNumber = await fetchUserMobileNumber(reqById);
@@ -55,7 +55,7 @@ const NotificationComponent = () => {
 
     const fetchUserMobileNumber = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/user/mobile/${userId}`);
+            const response = await axios.get(`https://backend-1-1trx.onrender.com/user/mobile/${userId}`);
             console.log('Fetched user mobile number:', response.data.mobileNumber);
             return response.data.mobileNumber;
         } catch (error) {
@@ -67,7 +67,7 @@ const NotificationComponent = () => {
     const handleDecline = async (notificationId) => {
         try {
             console.log('Declining notification:', notificationId);
-            await axios.put(`http://localhost:8000/notifications/${notificationId}/decline`);
+            await axios.put(`https://backend-1-1trx.onrender.com/notifications/${notificationId}/decline`);
             fetchNotifications(userId);
         } catch (error) {
             console.error('Error declining notification:', error);

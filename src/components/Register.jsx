@@ -22,7 +22,7 @@ const navigate=useNavigate()
   const handleloginSubmit=(e)=>{
     e.preventDefault()
     console.log(loginEmail)
-    axios.post('http://localhost:8000/login',{loginEmail,loginPassword})
+    axios.post('https://backend-1-1trx.onrender.com/login',{loginEmail,loginPassword})
     .then(result => {
         console.log(result)
         if(result.data==="Success"){
@@ -35,7 +35,7 @@ const navigate=useNavigate()
 
   const handleregisterSubmit=(e)=>{
     e.preventDefault()
-    axios.post('http://localhost:8000/user',{name,mobileNumber,email,password})
+    axios.post('https://backend-1-1trx.onrender.com/user',{name,mobileNumber,email,password})
     .then(result => console.log(result))
     .catch(err=>console.log(err))
      

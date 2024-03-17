@@ -33,7 +33,7 @@ function RideNotification() {
 
     const fetchRideNotifications = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/user-notifications/${userId}`);
+            const response = await axios.get(`https://backend-1-1trx.onrender.com/user-notifications/${userId}`);
             const fetchedNotifications = response.data;
 
             // Filter out notifications with return notification status 'none'
@@ -41,8 +41,8 @@ function RideNotification() {
 
             // Fetch ride details and user details for each notification
             const rideDetails = await Promise.all(filteredNotifications.map(async notification => {
-                const rideResponse = await axios.get(`http://localhost:8000/rides/${notification.rideId}`);
-                const userResponse = await axios.get(`http://localhost:8000/user/${rideResponse.data.userId}`);
+                const rideResponse = await axios.get(`https://backend-1-1trx.onrender.com/rides/${notification.rideId}`);
+                const userResponse = await axios.get(`https://backend-1-1trx.onrender.com/user/${rideResponse.data.userId}`);
                 return { ...notification, rideDetails: rideResponse.data, userMobileNumber: userResponse.data.mobileNumber, vehicleName: userResponse.data.vehicleName, vehicleNumber: userResponse.data.vehicleNumber };
             }));
 

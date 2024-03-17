@@ -33,7 +33,7 @@ function SearchRide() {
 
     const fetchUserDetails = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:8000/user/${userId}`);
+            const response = await axios.get(`https://backend-1-1trx.onrender.com/user/${userId}`);
             setUserDetails(response.data);
         } catch (error) {
             console.error('Error fetching user details:', error);
@@ -65,7 +65,7 @@ function SearchRide() {
 
     const sendRequest = async (rideId, pickup, destination) => {
         try {
-            await axios.post('http://localhost:8000/send-request', {
+            await axios.post('https://backend-1-1trx.onrender.com/send-request', {
                 rideId,
                 pickup,
                 destination,
