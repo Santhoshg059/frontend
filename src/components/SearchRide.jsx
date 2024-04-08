@@ -81,7 +81,8 @@ function SearchRide() {
     };
 
     return (
-        <div className="container">
+        <div id="root" style={{ backgroundColor: '#cbecf4', color: '#fff', minHeight: '100vh' }}>
+        <div className="container" >
             <h2 className="text-center mb-4">Search Results</h2>
             <div className="row">
                 {rides.map((ride, index) => (
@@ -126,7 +127,7 @@ function SearchRide() {
                                         <FontAwesomeIcon icon={faCar} /> Vehicle Number: {userDetails.vehicleNumber}
                                     </p>
                                 </div>
-                                <div className="input-group mt-3">
+                                <div className="input-group mt-3 searchinput">
                                     <input type="number" className="form-control requestseat" value={personCounts[ride._id] || 1}
                                         onChange={(e) => handlePersonCountChange(ride._id, e.target.value)}
                                         min="1" max={ride.availableSeats} />
@@ -137,6 +138,7 @@ function SearchRide() {
                     </div>
                 ))}
             </div>
+        </div>
         </div>
     );
 }
